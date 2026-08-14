@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+export const dynamic = "force-dynamic"; // 👈 이 줄을 맨 위에 추가!
 
 export async function POST(req: Request) {
   try {
