@@ -10,6 +10,7 @@ export default function IphoneRepairPage() {
     phone: "",
   });
 
+  // 💡 아래 isSubmitting 상태 선언이 누락되어 배포 에러가 발생했었습니다!
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
