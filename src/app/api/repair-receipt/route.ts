@@ -5,7 +5,6 @@ export async function POST(req: Request) {
   try {
     const { model, symptom, phone, request } = await req.json();
 
-    // 입력값 검증
     if (!model || !symptom || !phone) {
       return NextResponse.json(
         { error: "필수 항목이 누락되었습니다." },
@@ -13,20 +12,22 @@ export async function POST(req: Request) {
       );
     }
 
-    // SMTP 메일 전송 객체 생성
+    // Vercel 서버리스 환경에 최적화된 SMTP 설정 (587 포트 사용)
     const transporter = nodemailer.createTransport({
       host: "smtp.naver.com",
-      port: 465,
-      secure: true,
+      port: 587,
+      secure: false, // 587 포트는 false 설정
       auth: {
         user: "mirinae263@naver.com",
         pass: process.env.NAVER_EMAIL_PASSWORD,
       },
+      tls: {
+        rejectUnauthorized: false, // TLS 인증 완화 (Vercel 타임아웃 방지)
+      },
     });
 
-    // 이메일 옵션 (from을 이메일 주소만 명시하도록 수정)
     const mailOptions = {
-      from: "mirinae263@naver.com", // 👈 이름 수식어를 떼고 이메일 주소만 지정
+      from: "mirinae263@naver.com",
       to: "mirinae263@naver.com",
       subject: `[신규 수리 접수] ${model} - ${phone}`,
       html: `
@@ -59,13 +60,12 @@ export async function POST(req: Request) {
       `,
     };
 
-    // 전송 실행 및 결과 로그 찍기
     const info = await transporter.sendMail(mailOptions);
-    console.log("✅ 메일 발송 성공 디버깅 정보:", info.messageId, info.response);
+    console.log("✅ 메일 발송 성공:", info.messageId);
 
     return NextResponse.json({ success: true, message: "메일 발송 완료" });
   } catch (error) {
-    console.error("❌ 이메일 발송 오류:", error);
+    console.error("❌ 이메일 발송 오류 상세:", error);
     return NextResponse.json(
       { error: "이메일 전송 중 오류가 발생했습니다." },
       { status: 500 }
