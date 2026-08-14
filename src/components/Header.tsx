@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { href: "#philosophy", label: "철학" },
   { href: "#location", label: "오시는길" },
   { href: "#recipt", label: "수리접수" },
-  { href: "#pickup", label: "택배접수" },
   { href: "#reviews", label: "후기" },
 ];
 
