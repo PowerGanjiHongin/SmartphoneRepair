@@ -1,5 +1,4 @@
 import Image from "next/image";
-import HeroButtons from "./HeroButtons";
 
 export default function Footer() {
   return (
@@ -26,21 +25,12 @@ export default function Footer() {
           <h4>바로가기</h4>
           <ul>
             <li><a href="#philosophy">철학</a></li>
-            <li><a href="#service">서비스</a></li>
-            <li><a href="#trust">수리 견적</a></li>
+            <li><a href="#top">서비스</a></li>
+            <li><a href="#recipt">수리 견적</a></li>
             <li><a href="#reviews">후기</a></li>
           </ul>
         </div>
 
-        <div className="f-col">
-          <h4>고객 지원</h4>
-          <ul>
-            <li><a href="#pickup">택배접수 안내</a></li>
-            <li><a href="#reserve">수리 예약하기</a></li>
-            <li><a href="#">카카오톡 채널</a></li>
-            <li><a href="#">자주 묻는 질문</a></li>
-          </ul>
-        </div>
 
 
       </div>
