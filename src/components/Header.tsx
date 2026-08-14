@@ -53,7 +53,7 @@ export default function Header() {
         </nav>
 
         <div className="header-right">
-          <a href="https://talk.naver.com/profile/wlm83s7" className="btn-reserve">
+          <a href="https://booking.naver.com/booking/6/bizes/1678906" className="btn-reserve">
             수리 예약
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}>
               <path d="M6 9l6 6 6-6" />
