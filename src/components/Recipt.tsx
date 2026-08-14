@@ -19,7 +19,6 @@ export default function IphoneRepairPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // 💡 디버깅 기능이 강화된 handleSubmit 함수
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -35,14 +34,13 @@ export default function IphoneRepairPage() {
         alert("접수증이 성공적으로 제출되었습니다! 확인 후 신속히 연락드리겠습니다.");
         setFormData({ model: "", symptom: "", request: "", phone: "" });
       } else {
-        // 서버 응답이 에러(500, 404 등)인 경우 상태 코드와 에러 원인 출력
         const errorData = await res.json().catch(() => ({}));
         alert(`접수 실패 (상태 코드: ${res.status}): ${errorData.error || "서버 응답 오류가 발생했습니다."}`);
       }
-    } catch (err: any) {
-      // 브라우저 단에서 연결 자체 실패 시 상세 메시지 출력
+    } catch (err) {
       console.error("전송 오류 상세:", err);
-      alert(`네트워크 오류 상세: ${err.message || "서버에 접근할 수 없습니다."}`);
+      const errorMessage = err instanceof Error ? err.message : "서버에 접근할 수 없습니다.";
+      alert(`네트워크 오류 상세: ${errorMessage}`);
     } finally {
       setIsSubmitting(false);
     }
