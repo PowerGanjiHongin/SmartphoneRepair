@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  // images: { unoptimized: true }, // GitHub Pages 배포 시 이미지 에러 방지를 위해 필요할 수 있습니다
+  // GitHub 저장소 이름을 basePath로 지정합니다 (대소문자 정확히 match)
+  basePath: '/SmartphoneRepair',
+  assetPrefix: '/SmartphoneRepair',
+  images: {
+    unoptimized: true, // 정적 배포 시 Next 이미지 최적화 에러 방지
+  },
 };
 
 export default nextConfig;
