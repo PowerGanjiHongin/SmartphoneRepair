@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "../app/globals.css";
+import "./globals.css";
 import Header from "@/src/components/Header";
 import AnnounceBar from "@/src/components/AnnounceBar";
 import Footer from "@/src/components/Footer";
@@ -33,6 +33,7 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
+        <AnnounceBar />
         <main id="top">{children}</main>
         <Footer />
         <MobileNav />
