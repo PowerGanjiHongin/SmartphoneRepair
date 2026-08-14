@@ -6,7 +6,7 @@ import { useEffect, useState, useRef } from "react";
 const HERO_BUTTONS = [
   { label: "아이폰 수리관련", icon: "📱", href: "/iphone-repair", colorKey: "purple" },
   { label: "패드 수리관련", icon: "📲", href: "/ipad-repair", colorKey: "pink" },
-  { label: "맥북 수리관련", icon: "💻", href: "#macbook", colorKey: "slate" },
+  { label: "맥북 수리관련", icon: "💻", href: "/macbook-repair", colorKey: "slate" },
   { label: "수리점 소개", icon: "🏪", href: "#philosophy", colorKey: "blue" },
   { label: "찾아오시는길", icon: "🗺️", href: "#location", colorKey: "amber" },
   { label: "수리후기", icon: "⭐", href: "#reviews", colorKey: "green" },

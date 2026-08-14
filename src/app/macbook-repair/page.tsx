@@ -1,5 +1,4 @@
-
-import BlogSection_ipad from "@/components/BlogSection_ipad";
+import BlogSection from "@/components/BlogSection_Macbook";
 import Link from "next/link";
 
 export default function IphoneRepairPage() {
@@ -87,7 +86,7 @@ export default function IphoneRepairPage() {
                 textTransform: "uppercase",
               }}
             >
-              iPad Repair Service
+              MacBook Repair Service
             </span>
             <h1
               style={{
@@ -97,7 +96,7 @@ export default function IphoneRepairPage() {
                 margin: "8px 0 12px 0",
               }}
             >
-              아이패드 전문 수리 센터
+              맥북 전문 수리 센터
             </h1>
             <p
               style={{
@@ -185,20 +184,7 @@ export default function IphoneRepairPage() {
           ))}
         </div>
 
-        {/* 3. 아이폰 수리 관련 블로그 최신글 영역 추가 */}
-        <div
-          style={{
-            backgroundColor: "#ffffff",
-            borderRadius: "20px",
-            padding: "32px",
-            border: "1px solid #e2e8f0",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
-          }}
-        >
-          
-        </div>
-
-        {/* 4. 하단 실시간 상담 & 예약 안내 배너 */}
+        {/* 3. 하단 실시간 상담 & 예약 안내 배너 */}
         <div
           style={{
             backgroundColor: "#0f172a",
@@ -237,9 +223,8 @@ export default function IphoneRepairPage() {
               📞 전화 문의하기
             </a>
           </div>
-          
         </div>
-        <BlogSection_ipad />
+        <BlogSection />
       </div>
     </main>
   );
