@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Header from "@/src/components/Header";
-import AnnounceBar from "@/src/components/AnnounceBar";
-import Footer from "@/src/components/Footer";
-import MobileNav from "@/src/components/MobileNav";
+// src/ 가 없다면 경로를 @/components/ 로 변경해야 합니다.
+import Header from "@/components/Header";
+import AnnounceBar from "@/components/AnnounceBar";
+import Footer from "@/components/Footer";
+import MobileNav from "@/components/MobileNav";
 
 export const metadata: Metadata = {
   title: "스마트폰 전문수리점 | 확인할 수 있는 수리",
@@ -24,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        {/* Pretendard는 variable font라 next/font/google 목록에 없어 CDN에서 직접 로드합니다 */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link
           rel="stylesheet"

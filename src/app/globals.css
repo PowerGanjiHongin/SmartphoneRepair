@@ -2,6 +2,7 @@
    (variable font라 next/font/google 목록에 없어서 head에서 직접 로드) */
 @tailwind base;
 @tailwind components;
+@import "tailwindcss";
 @tailwind utilities;
 
 :root{

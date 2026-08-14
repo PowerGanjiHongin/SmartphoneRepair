@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import BlogSection from "@/src/components/BlogSection";
+import BlogSection from "@/components/BlogSection";
 
 export default function IphoneRepairPage() {
   // 접수증 폼 상태
