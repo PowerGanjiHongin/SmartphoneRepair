@@ -1,5 +1,5 @@
 
-import BlogSection_ipad from "@/src/components/BlogSection_ipad";
+import BlogSection_ipad from "@/components/BlogSection_ipad";
 import Link from "next/link";
 
 export default function IphoneRepairPage() {

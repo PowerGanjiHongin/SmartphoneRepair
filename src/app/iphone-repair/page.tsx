@@ -1,4 +1,4 @@
-import BlogSection from "@/src/components/BlogSection";
+import BlogSection from "@/components/BlogSection";
 import Link from "next/link";
 
 export default function IphoneRepairPage() {
