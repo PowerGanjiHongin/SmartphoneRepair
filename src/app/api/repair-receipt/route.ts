@@ -76,21 +76,37 @@
 //   }
 // }
 
-
 export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
+    // API 키 존재 여부 검증
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "RESEND_API_KEY 환경변수가 설정되지 않았습니다." },
+        { status: 500 }
+      );
+    }
+
+    // 함수 호출 시점에 Resend 인스턴스 생성
+    const resend = new Resend(apiKey);
+
     const { model, symptom, phone, request } = await req.json();
+
+    if (!model || !symptom || !phone) {
+      return NextResponse.json(
+        { error: "필수 항목이 누락되었습니다." },
+        { status: 400 }
+      );
+    }
 
     const data = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "mirinae263@naver.com", // 받으시는 네이버 메일주소
+      to: "mirinae263@naver.com",
       subject: `[신규 수리 접수] ${model} - ${phone}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
