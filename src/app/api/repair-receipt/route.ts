@@ -29,6 +29,19 @@ export async function POST(req: Request) {
       },
     });
 
+    // 숫자가 아닌 문자는 모두 제거 (하이픈, 공백 등 제거)
+    const cleanPhone = phone.replace(/[^0-9]/g, "");
+
+// 조건: 010으로 시작하고 정확히 11자리 숫자일 것
+    const phoneRegex = /^010\d{8}$/;
+    
+    if (!phoneRegex.test(cleanPhone)) {
+  return NextResponse.json(
+    { error: "전화번호는 010으로 시작하는 11자리 숫자여야 합니다." },
+    { status: 400 }
+  );
+}
+
     const mailOptions = {
       from: "mirinae263@naver.com",
       to: "mirinae263@naver.com",
