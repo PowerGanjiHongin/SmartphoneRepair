@@ -10,13 +10,20 @@ export default function IphoneRepairPage() {
     phone: "",
   });
 
-  // 💡 아래 isSubmitting 상태 선언이 누락되어 배포 에러가 발생했었습니다!
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    
+    // 전화번호 입력창일 경우 숫자가 아닌 문자는 즉시 제거
+    if (name === "phone") {
+      const onlyNums = value.replace(/[^0-9]/g, "");
+      setFormData((prev) => ({ ...prev, phone: onlyNums }));
+      return;
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -161,11 +168,14 @@ export default function IphoneRepairPage() {
                   <label style={{ display: "block", fontSize: "13px", fontWeight: "bold", color: "#334155", marginBottom: "6px" }}>
                     상담 가능 전화번호 <span style={{ color: "#ef4444" }}>*</span>
                   </label>
+                  {/* 👈 전화번호 입력창 최적화 수정 영역 */}
                   <input
-                    type="tel"
+                    type="text"
+                    inputMode="numeric"
                     name="phone"
+                    maxLength={11}
                     required
-                    placeholder="010-0000-0000"
+                    placeholder="01012345678 ('-' 없이 입력)"
                     value={formData.phone}
                     onChange={handleChange}
                     style={{
