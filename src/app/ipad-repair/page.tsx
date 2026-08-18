@@ -215,7 +215,7 @@ export default function IphoneRepairPage() {
         >
           <div>
             <h3 style={{ fontSize: "22px", fontWeight: "bold", margin: "0 0 6px 0" }}>
-              내 아이폰 수리 견적이 궁금하신가요?
+              내 아이패드 수리 견적이 궁금하신가요?
             </h3>
             <p style={{ fontSize: "14px", color: "#94a3b8", margin: 0 }}>
               기종과 고장 증상을 알려주시면 즉시 정확한 견적을 안내해 드립니다.
