@@ -3,7 +3,6 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer id="location">
-      
       <div className="footer-top">
         <div className="f-brand">
           <a href="#top" className="brand">
@@ -30,15 +29,12 @@ export default function Footer() {
             <li><a href="#reviews">후기</a></li>
           </ul>
         </div>
-
-
-
       </div>
 
       <div className="footer-bottom">
         <div className="wrap">
-          <span>© 2026 스마트폰 전문수리점. All rights reserved.</span>
-          <span>상호명 · 사업자등록번호 · 통신판매업신고번호 등은 실제 정보로 교체해 주세요.</span>
+          <span>© 2026 미리내 테크놀로지 & 아이폰 아이패드 맥북 전문 수리점. All rights reserved.</span>
+          <span>상호명: 미리내 테크놀로지 & 아이폰 아이패드 맥북 전문 수리점 | 대표: 임홍인 | 사업자등록번호: 630-43-01374</span>
         </div>
       </div>
     </footer>
