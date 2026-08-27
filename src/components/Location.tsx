@@ -7,10 +7,14 @@ export default function Location() {
     storeName: "스마트폰 수리 전문점",
     address: "충청남도 천안시 동남구 고재 10길 3, 2층",
     phone: "010-0000-0000",
-    mapIframeUrl: "https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357b29e933050c77%3A0x8a3409cf009b1cdf!2z7LKc7JWIIOyKpOuniO2KuO2PsCDsoITrrLjsiJjrpqzsoJA!5e0!3m2!1sko!2skr!4v1786505168197!5m2!1sko!2skr",
-    naverMapUrl: "https://map.naver.com/p/entry/place/2034841822?c=15.00,0,0,0,dh&placePath=%2Fhome%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608121229%26locale%3Dko%26svcName%3Dmap_pcv5",
+    operatingHours: "10:00 ~ 20:00", // 영업시간 추가
+    mapIframeUrl:
+      "https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357b29e933050c77%3A0x8a3409cf009b1cdf!2z7LKc7JWIIOyKpOuniO2KuO2PsCDsoITrrLjsiJjrpqzsoJA!5e0!3m2!1sko!2skr!4v1786505168197!5m2!1sko!2skr",
+    naverMapUrl:
+      "https://map.naver.com/p/entry/place/2034841822?c=15.00,0,0,0,dh&placePath=%2Fhome%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608121229%26locale%3Dko%26svcName%3Dmap_pcv5",
     kakaoMapUrl: "https://place.map.kakao.com/1045781673",
-    googleMapUrl: "https://www.google.com/maps/place/%EC%B2%9C%EC%95%88+%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0+%EC%A0%84%EB%AC%B8%EC%88%98%EB%A6%AC%EC%A0%90/data=!4m2!3m1!1s0x0:0x8a3409cf009b1cdf?sa=X&ved=1t:2428&ictx=111",
+    googleMapUrl:
+      "https://www.google.com/maps/place/%EC%B2%9C%EC%95%88+%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0+%EC%A0%84%EB%AC%B8%EC%88%98%EB%A6%AC%EC%A0%90/data=!4m2!3m1!1s0x0:0x8a3409cf009b1cdf?sa=X&ved=1t:2428&ictx=111",
     naverTalkURL: "https://talk.naver.com/profile/wlm83s7",
   };
 
@@ -110,7 +114,7 @@ export default function Location() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              gap: "16px",
+              gap: "20px",
             }}
           >
             <div>
@@ -134,6 +138,41 @@ export default function Location() {
               >
                 원하시는 지도 앱 서비스로 길찾기 및 전화 상담을 바로 연결해 보세요.
               </p>
+            </div>
+
+            {/* 🔥 새로 추가된 영업시간 영역 */}
+            <div
+              style={{
+                backgroundColor: "#f1f5f9",
+                border: "1px solid #e2e8f0",
+                borderRadius: "12px",
+                padding: "14px 16px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <span style={{ fontSize: "16px" }}>⏰</span>
+                <span
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    color: "#334155",
+                  }}
+                >
+                  영업시간
+                </span>
+              </div>
+              <span
+                style={{
+                  fontSize: "15px",
+                  fontWeight: "700",
+                  color: "#2563eb",
+                }}
+              >
+                {LOCATION_INFO.operatingHours}
+              </span>
             </div>
 
             {/* 버튼 리스트 */}
