@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 import MobileNav from "@/components/MobileNav";
 
 export const metadata: Metadata = {
-  title: "스마트폰 전문수리점 | 확인할 수 있는 수리",
-  description: "속지 않으셔도 됩니다. 확인하시면 되니까요 — 스마트폰 전문수리점",
+  title: "미리내 테크놀로지 & 아이폰 아이패드 맥북 전문수리점 | 확인할 수 있는 수리",
+  description: "속지 않으셔도 됩니다. 확인하시면 되니까요 — 아이폰 아이패드 맥북 전문수리점",
 };
 
 export const viewport: Viewport = {
