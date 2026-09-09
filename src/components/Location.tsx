@@ -9,7 +9,7 @@ export default function Location() {
     phone: "010-0000-0000",
     operatingHours: "10:00 ~ 20:00", // 영업시간 추가
     mapIframeUrl:
-      "https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357b29e933050c77%3A0x8a3409cf009b1cdf!2z7LKc7JWIIOyKpOuniO2KuO2PsCDsoITrrLjsiJjrpqzsoJA!5e0!3m2!1sko!2skr!4v1786505168197!5m2!1sko!2skr",
+      "https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357b2964e76845b1%3A0x6a68f95ec10a8cb8!2z66-466as64K07YWM7YGs64aA66Gc7KeAICYg7JWE7J207Y-wIOyVhOydtO2MqOuTnCDrp6XrtoEg7KCE66y4IOyImOumrOygkA!5e0!3m2!1sko!2skr!4v1788933515831!5m2!1sko!2skr",
     naverMapUrl:
       "https://map.naver.com/p/entry/place/2034841822?c=15.00,0,0,0,dh&placePath=%2Fhome%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608121229%26locale%3Dko%26svcName%3Dmap_pcv5",
     kakaoMapUrl: "https://place.map.kakao.com/1045781673",
