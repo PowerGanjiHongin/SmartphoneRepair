@@ -251,6 +251,60 @@ nav.main-nav a:hover{color:#fff;}
   margin:0;
 }
 
+/* ===== 중앙 연락처 오버레이 (추가된 부분) ===== */
+.hero-center-contact {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5; /* 양쪽 분할 영역(z-index: 2)보다 위에 위치하도록 설정 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  pointer-events: auto;
+  padding: 16px 24px;
+  background: rgba(0, 0, 0, 0.4); /* 배경을 살짝 어둡게 처리해 글자 가독성 확보 */
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sky-2, #38bdf8);
+  background: rgba(0, 136, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+.contact-number {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 900;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contact-number:hover {
+  transform: scale(1.05);
+  color: var(--sky-2, #38bdf8);
+}
+
+/* 모바일 화면 대응 */
+@media (max-width: 768px) {
+  .hero-center-contact {
+    padding: 12px 18px;
+    width: 85%;
+  }
+}
+
 /* ===== HERO BUTTONS OVERLAY ===== */
 .hero-buttons-overlay {
   position: fixed;

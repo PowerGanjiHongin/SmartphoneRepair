@@ -25,7 +25,15 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* 스크롤에 따라 감춰지고 나타나는 버튼 오버레이임 */}
+      {/* 히어로 섹션 중앙 안내 문구 및 전화번호 */}
+      <div className="hero-center-contact">
+        <span className="contact-badge">상담 및 점검 무료</span>
+        <a href="tel:01046151052" className="contact-number">
+          010-4615-1052
+        </a>
+      </div>
+
+      {/* 스크롤에 따라 감춰지고 나타나는 버튼 오버레이 */}
       <HeroButtons />
 
       <div className="scroll-cue" />
