@@ -15,6 +15,7 @@ const HERO_BUTTONS = [
 export default function HeroButtons() {
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const scrollUpDistance = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,21 +25,36 @@ export default function HeroButtons() {
         document.body.scrollTop ||
         0;
 
+      // 1. 전체 스크롤 가능한 최대 높이 계산
+      const totalScrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      // 2. 현재 스크롤 위치를 퍼센트(0~100)로 변환
+      const scrollPercent =
+        totalScrollHeight > 0 ? (currentScrollY / totalScrollHeight) * 100 : 0;
+
       const delta = currentScrollY - lastScrollY.current;
 
-      // 최상단 근처에서는 항상 표시
-      if (currentScrollY <= 50) {
-        setIsVisible(true);
-      } else {
-        // 스크롤을 아래로 내리면 숨김
+      // 3. 최상단 근처 (상위 5% 이내)에서는 무조건 표시
+
         if (delta > 0) {
+          // 아래로 스크롤 중: 숨기고 위로 누적 거리 초기화
           setIsVisible(false);
+          scrollUpDistance.current = 0;
+        } else if (delta < 0) {
+          // 위로 스크롤 중: 누적 거리 합산
+          scrollUpDistance.current += Math.abs(delta);
+
+          // 4. 💡 전체 페이지 높이의 10%에 해당하는 픽셀 값을 계산
+          const thresholdDistance = totalScrollHeight * 0.10;
+
+          // 위로 누적해서 올린 거리가 전체 높이의 10% 이상이 되면 다시 표시
+          if (scrollUpDistance.current >= thresholdDistance) {
+            setIsVisible(true);
+          }
         }
-        // 스크롤을 위로 올리면 다시 표시
-        else if (delta < -1) {
-          setIsVisible(true);
-        }
-      }
+      
 
       lastScrollY.current = currentScrollY;
     };
@@ -57,7 +73,7 @@ export default function HeroButtons() {
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translate(-50%, 0)" : "translate(-50%, 30px)",
         pointerEvents: isVisible ? "auto" : "none",
-        visibility: isVisible ? "visible" : "hidden", // 👈 핵심: 안 보일 때 완전히 클릭 및 포커스 차단
+        visibility: isVisible ? "visible" : "hidden",
       }}
       className="hero-buttons-overlay"
     >
@@ -68,7 +84,7 @@ export default function HeroButtons() {
             href={btn.href}
             className="hero-button-card"
             data-color={btn.colorKey}
-            tabIndex={isVisible ? 0 : -1} // 👈 키보드 탭(Focus) 이동도 방지
+            tabIndex={isVisible ? 0 : -1}
           >
             <span className="hero-button-icon">{btn.icon}</span>
             <span className="hero-button-label">{btn.label}</span>
